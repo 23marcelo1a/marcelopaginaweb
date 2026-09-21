@@ -20,6 +20,10 @@
                 max-width: 800px;
                 margin: 0 auto;
                 padding: 16px;
+                /* Flexbox para alinhar a imagem e a div de textos lado a lado */
+                display: flex;
+                align-items: center;
+                gap: 16px;
             }
 
             img {
@@ -27,7 +31,11 @@
                 height: 80px;
                 object-fit: cover;
                 display: block;
-                margin: 10px 0;
+            }
+
+            /* Classe específica para destacar apenas o nome do autor */
+            .artigo-autor {
+                font-weight: bold;
             }
         </style>
     </head>
@@ -37,11 +45,13 @@
             <p>Vou compartilhar conhecimento sobre tecnologia e programação</p>
         </header>
         <main>
-            <h2>Meu primeiro post</h2>
-            <p>Por: Marcelo Henrique</p>
-            <p>Sejam bem-vindos ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades sobre a tecnologia.</p>
-            <img src="imagem. blog.png" alt="Logotipo conceitual de tecnologia e educação: um livro aberto de onde emerge um cérebro digital brilhante, 
-            cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
+            <img src="imagem. blog.png" alt="Logotipo conceitual de tecnologia e educação: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
+            
+            <div>
+                <h2>Meu primeiro post</h2>
+                <p class="artigo-autor">Por: Marcelo Paludetto</p>
+                <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
+            </div>
         </main>
     </body>
 </html>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blog</title>
+        <title>Blog - Interatividade com Botões</title>
         <style>
             header {
                 background-color: #183C63;
@@ -37,6 +37,22 @@
             .artigo-autor {
                 font-weight: bold;
             }
+
+            /* Estilo simples para destacar o código dentro da aula */
+            code {
+                background-color: #e0e0e0;
+                padding: 2px 4px;
+                border-radius: 4px;
+                font-family: monospace;
+            }
+
+            pre {
+                background-color: #1e1e1e;
+                color: #dcdcdc;
+                padding: 10px;
+                border-radius: 6px;
+                overflow-x: auto;
+            }
         </style>
     </head>
     <body>
@@ -45,12 +61,87 @@
             <p>Vou compartilhar conhecimento sobre tecnologia e programação</p>
         </header>
         <main>
-            <img src="imagem. blog.png" alt="Logotipo conceitual de tecnologia e educação: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
+            <img src="imagem. blog.png" alt="Logotipo conceitual de tecnologia e educação">
             
             <div>
-                <h2>Meu primeiro post</h2>
-                <p class="artigo-autor">Por: Marcelo Henrique</p>
-                <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
+                <h2>Criando reações e contadores com JavaScript</h2>
+                <p class="artigo-autor">Por: Instrutor Alura</p>
+                
+                <p>Olá, estudante!</p>
+                <p>Uma das formas mais comuns de interação em redes sociais é através de botões de <em>like</em> e <em>dislike</em>. Algumas plataformas também permitem diferentes tipos de reação.</p>
+                <p>Nesta aula, você irá criar esse tipo de efeito em uma página web. Para isso, será necessário adicionar um elemento chamado <code>button</code>.</p>
+                <p>A tag <code>&lt;button&gt;</code> representa um botão que pode conter texto, números ou emojis. Adicione um botão simples ao seu código:</p>
+                
+                <pre><code>&lt;button&gt;&lt;/button&gt;</code></pre>
+
+                <h3>Adicionando emojis e contadores ao botão</h3>
+                <p>Podemos inserir um emoji dentro do botão. No Windows, é possível usar o atalho <strong>Windows + V</strong>. Também é possível copiar emojis de sites e colar dentro do botão. Exemplo:</p>
+                
+                <pre><code>&lt;button&gt;❤️&lt;/button&gt;</code></pre>
+
+                <p>Ao atualizar a página, o botão aparecerá com um coração.</p>
+                <p>Agora vamos adicionar um número ao lado do emoji. Para que esse número possa ser alterado, precisamos colocá-lo dentro de uma tag. Utilizaremos a tag <code>&lt;span&gt;</code>.</p>
+                
+                <pre><code>&lt;button&gt;❤️&lt;span&gt;0&lt;/span&gt;&lt;/button&gt;</code></pre>
+
+                <p>O <code>&lt;span&gt;</code> será o valor que iremos atualizar com JavaScript.</p>
+
+                <h3>Implementando interatividade com JavaScript</h3>
+                <p>Até agora utilizamos:</p>
+                <ul>
+                    <li><strong>HTML</strong> → estrutura</li>
+                    <li><strong>CSS</strong> → estilo</li>
+                </ul>
+                <p>Agora iremos usar <strong>JavaScript</strong> para adicionar interação. No final do arquivo, depois do conteúdo do <code>&lt;body&gt;</code>, adicione:</p>
+
+                <pre><code>&lt;script&gt;&lt;/script&gt;</code></pre>
+
+                <h3>Criando a função de clique do botão</h3>
+                <p>Dentro do script, vamos criar uma variável para acessar o botão.</p>
+
+                <pre><code>const botao = document.querySelector("button");</code></pre>
+
+                <p>Ao selecionar esse botão, basicamente estamos dizendo "estou te ouvindo". Agora vamos dizer que queremos executar algo quando o botão for clicado.</p>
+                <p>O processo é semelhante ao que fizemos com os seletores no CSS. Primeiro, procuramos um seletor — neste caso, o botão — e armazenamos essa informação em uma variável.</p>
+                <p>Em seguida, olhamos para esse botão e adicionamos um <code>addEventListener</code>, que funciona como um evento de escuta. Isso significa que o JavaScript ficará “ouvindo” o botão para identificar quando ele for clicado.</p>
+                <p>O código ficará assim:</p>
+
+                <pre><code>const botao = document.querySelector("button");
+botao.addEventListener("click", botaoClicado);</code></pre>
+
+                <p>Dessa forma, quando acontecer um clique, será executada uma função chamada <code>botaoClicado</code>.</p>
+
+                <h3>Definindo a ação ao clicar no botão</h3>
+                <p>Primeiramente, já declaramos o valor da variável que representa o botão em toda a página. Selecionamos esse botão e indicamos que o JavaScript deverá ouvir quando ele for clicado.</p>
+                <p>Como esse evento de clique executará uma ação, será necessário criar uma função. Em JavaScript, isso significa que não enviaremos apenas um comando isolado, mas um conjunto de instruções que será executado quando o clique acontecer.</p>
+                <p>Neste caso, vamos criar uma função chamada <code>botaoClicado</code>. Observe a estrutura:</p>
+
+                <pre><code>function botaoClicado() {
+
+}</code></pre>
+
+                <p>Agora precisamos deixar claro o que acontecerá quando o botão for clicado. Uma ação simples para começar é usar <code>console.log</code> para exibir uma mensagem no console:</p>
+
+                <pre><code>function botaoClicado() {
+    console.log("fui clicado");
+}</code></pre>
+
+                <p>Pressione <strong>F12</strong> e abra o console. Ao clicar no botão a mensagem deverá aparecer, indicando que a função foi executada corretamente.</p>
+
+                <h3>Atualizando o contador de cliques</h3>
+                <p>Agora que o clique está funcionando, vamos alterar o valor dentro do <code>&lt;span&gt;</code>.</p>
+                <p>Observe que, no HTML, usamos tags. No CSS, usamos propriedades com dois pontos e ponto e vírgula. Já no JavaScript, a estrutura é diferente, mas também utilizamos ponto e vírgula ao final das instruções.</p>
+                <p>Dentro do botão existe um <code>&lt;span&gt;</code> com o número 0. Precisamos acessar esse valor.</p>
+
+                <pre><code>function botaoClicado() {
+    let texto = botao.querySelector("span");
+    texto.textContent++;
+}</code></pre>
+
+                <p>Observe que <code>textContent++</code> soma 1 ao valor atual. Assim, o contador aumenta a cada clique.</p>
+
+                <h3>Concluindo a implementação e próximos passos</h3>
+                <p>Agora sua página possui HTML, CSS e JavaScript integrados! Você pode criar outros botões, adicionar novas reações ou testar diferentes emojis.</p>
             </div>
         </main>
     </body>

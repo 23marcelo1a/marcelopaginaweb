@@ -3,93 +3,258 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blog</title>
+        <title>Blog Tech</title>
         <style>
+            /* Variáveis CSS para gerenciamento de temas (Claro e Escuro) */
+            :root {
+                --bg-body: #f4f7f6;
+                --bg-card: #ffffff;
+                --text-primary: #1c2024;
+                --text-secondary: #555555;
+                --header-bg: #183C63;
+                --header-text: #ffffff;
+                --border-color: #e0e0e0;
+                --button-bg: #f8f9fa;
+                --button-hover: #e9ecef;
+            }
+
+            /* Tema Escuro (Dark Mode) */
+            body.dark-mode {
+                --bg-body: #121212;
+                --bg-card: #1e1e1e;
+                --text-primary: #f1f1f1;
+                --text-secondary: #aaa;
+                --border-color: #333333;
+                --button-bg: #2d2d2d;
+                --button-hover: #3d3d3d;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: var(--bg-body);
+                color: var(--text-primary);
+                line-height: 1.6;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
             header {
-                background-color: #183C63;
-                color: #FFFFFF;
+                background-color: var(--header-bg);
+                color: var(--header-text);
                 text-align: center;
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 16px;
+                padding: 2rem 1rem;
+                position: relative;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+                opacity: 0.9;
+            }
+
+            /* Botão de alternância do Modo Escuro */
+            .theme-toggle {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: transparent;
+                border: 1px solid rgba(255, 255, 255, 0.4);
+                color: #ffffff;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                cursor: pointer;
+                font-size: 0.9rem;
+                transition: background 0.3s;
+            }
+
+            .theme-toggle:hover {
+                background: rgba(255, 255, 255, 0.2);
             }
 
             main {
-                background-color: rgb(247, 253, 247);
-                color: #070404;
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 16px;
-                /* Flexbox para alinhar a imagem e a div de textos lado a lado */
+                max-width: 1200px;
+                margin: 2rem auto;
+                padding: 0 1.5rem;
+            }
+
+            /* Container em Grid para exibição dos posts em Cards */
+            .posts-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1.8rem;
+            }
+
+            .artigo-card {
+                background-color: var(--bg-card);
+                border: 1px solid var(--border-color);
+                border-radius: 12px;
+                padding: 1.5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .artigo-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            .artigo-header {
                 display: flex;
                 align-items: center;
-                gap: 16px;
+                gap: 1rem;
+                margin-bottom: 1rem;
             }
 
-            img {
-                width: 80px;
-                height: 80px;
+            .artigo-header img {
+                width: 64px;
+                height: 64px;
+                border-radius: 8px;
                 object-fit: cover;
-                display: block;
             }
 
-            /* Classe específica para destacar apenas o nome do autor */
+            .artigo-titulo {
+                font-size: 1.3rem;
+                margin-bottom: 0.2rem;
+            }
+
             .artigo-autor {
-                font-weight: bold;
+                font-size: 0.95rem;
+                color: var(--text-secondary);
+                font-weight: 600;
             }
 
-            /* Estilização para o botão de reação */
-            button {
+            .artigo-conteudo {
+                font-size: 1rem;
+                color: var(--text-primary);
+                margin-bottom: 1.2rem;
+            }
+
+            /* Ações de reação */
+            .artigo-acoes {
+                display: flex;
+                gap: 0.5rem;
+            }
+
+            button.btn-reacao {
                 display: inline-flex;
                 align-items: center;
                 gap: 6px;
-                padding: 6px 12px;
-                border: 1px solid #ccc;
-                border-radius: 16px;
-                background-color: #ffffff;
+                padding: 6px 14px;
+                border: 1px solid var(--border-color);
+                border-radius: 20px;
+                background-color: var(--button-bg);
+                color: var(--text-primary);
                 cursor: pointer;
-                margin-top: 10px;
-                margin-right: 6px;
-                font-size: 14px;
+                font-size: 0.95rem;
+                transition: background-color 0.2s ease;
             }
 
-            button:hover {
-                background-color: #f0f0f0;
+            button.btn-reacao:hover {
+                background-color: var(--button-hover);
             }
         </style>
     </head>
     <body>
         <header>
             <h1>Meu blog tech</h1>
-            <p>Vou compartilhar conhecimento sobre tecnologia e programação</p>
+            <p>Compartilhando conhecimento sobre tecnologia e programação</p>
+            <button class="theme-toggle" id="btn-tema">🌙 Modo Escuro</button>
         </header>
+
         <main>
-            <img src="imagem. blog.png" alt="Logotipo conceitual de tecnologia e educação: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
-            
-            <div>
-                <h2>Meu primeiro post</h2>
-                <p class="artigo-autor">Por: Marcelo Henrique</p>
-                <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
+            <section class="posts-grid">
                 
-                <!-- Botões com emojis e contadores -->
-                <button>❤️ <span>0</span></button>
-                <button>👍 <span>0</span></button>
-            </div>
+                <!-- Post 1 -->
+                <article class="artigo-card">
+                    <div>
+                        <div class="artigo-header">
+                            <img src="imagem. blog.png" alt="Logotipo conceitual de tecnologia e educação">
+                            <div>
+                                <h2 class="artigo-titulo">Boas-vindas ao Blog Tech</h2>
+                                <p class="artigo-autor">Por: Marcelo Henrique</p>
+                            </div>
+                        </div>
+                        <p class="artigo-conteudo">Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação, boas práticas e curiosidades da área de tecnologia.</p>
+                    </div>
+                    <div class="artigo-acoes">
+                        <button class="btn-reacao">❤️ <span>0</span></button>
+                        <button class="btn-reacao">👍 <span>0</span></button>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="artigo-card">
+                    <div>
+                        <div class="artigo-header">
+                            <img src="imagem. blog.png" alt="Ilustração sobre inteligência artificial e algoritmo">
+                            <div>
+                                <h2 class="artigo-titulo">Curiosidades sobre IA</h2>
+                                <p class="artigo-autor">Por: Ana Clara</p>
+                            </div>
+                        </div>
+                        <p class="artigo-conteudo">Você sabia que os primeiros conceitos de redes neurais artificiais surgiram na década de 1940? Descubra como a IA evoluiu até os modelos atuais.</p>
+                    </div>
+                    <div class="artigo-acoes">
+                        <button class="btn-reacao">❤️ <span>0</span></button>
+                        <button class="btn-reacao">👍 <span>0</span></button>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="artigo-card">
+                    <div>
+                        <div class="artigo-header">
+                            <img src="imagem. blog.png" alt="Ilustração sobre desenvolvimento Web e CSS Grid">
+                            <div>
+                                <h2 class="artigo-titulo">Por que aprender CSS Grid?</h2>
+                                <p class="artigo-autor">Por: Lucas Silva</p>
+                            </div>
+                        </div>
+                        <p class="artigo-conteudo">O CSS Grid layout revolucionou a construção de interfaces web responsivas, tornando o alinhamento de elementos bidimensional muito mais simples e limpo.</p>
+                    </div>
+                    <div class="artigo-acoes">
+                        <button class="btn-reacao">❤️ <span>0</span></button>
+                        <button class="btn-reacao">👍 <span>0</span></button>
+                    </div>
+                </article>
+
+            </section>
         </main>
 
-        <!-- Script com a lógica de interatividade JavaScript -->
         <script>
-            // Seleciona todos os botões da página
-            const botoes = document.querySelectorAll("button");
+            // Lógica dos contadores de reação
+            const botoesReacao = document.querySelectorAll(".btn-reacao");
             
-            // Percorre cada botão da lista
-            botoes.forEach(function(botao) {
-                // Adiciona o ouvinte de evento para cada botão
+            botoesReacao.forEach(function(botao) {
                 botao.addEventListener("click", function() {
-                    console.log("fui clicado");
-                    let texto = botao.querySelector("span");
-                    texto.textContent++;
+                    let contador = botao.querySelector("span");
+                    contador.textContent = parseInt(contador.textContent) + 1;
                 });
+            });
+
+            // Lógica do Modo Escuro (Dark Mode)
+            const btnTema = document.getElementById("btn-tema");
+            
+            btnTema.addEventListener("click", function() {
+                document.body.classList.toggle("dark-mode");
+                
+                if (document.body.classList.contains("dark-mode")) {
+                    btnTema.textContent = "☀️ Modo Claro";
+                } else {
+                    btnTema.textContent = "🌙 Modo Escuro";
+                }
             });
         </script>
     </body>

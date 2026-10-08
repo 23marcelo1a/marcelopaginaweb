@@ -4,167 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Blog Tech</title>
-        <style>
-            /* Variáveis CSS para gerenciamento de temas (Claro e Escuro) */
-            :root {
-                --bg-body: #f4f7f6;
-                --bg-card: #ffffff;
-                --text-primary: #1c2024;
-                --text-secondary: #555555;
-                --header-bg: #183C63;
-                --header-text: #ffffff;
-                --border-color: #e0e0e0;
-                --button-bg: #f8f9fa;
-                --button-hover: #e9ecef;
-            }
-
-            /* Tema Escuro (Dark Mode) */
-            body.dark-mode {
-                --bg-body: #121212;
-                --bg-card: #1e1e1e;
-                --text-primary: #f1f1f1;
-                --text-secondary: #aaa;
-                --border-color: #333333;
-                --button-bg: #2d2d2d;
-                --button-hover: #3d3d3d;
-            }
-
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-
-            body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background-color: var(--bg-body);
-                color: var(--text-primary);
-                line-height: 1.6;
-                transition: background-color 0.3s ease, color 0.3s ease;
-            }
-
-            header {
-                background-color: var(--header-bg);
-                color: var(--header-text);
-                text-align: center;
-                padding: 2rem 1rem;
-                position: relative;
-            }
-
-            header h1 {
-                font-size: 2.2rem;
-                margin-bottom: 0.5rem;
-            }
-
-            header p {
-                font-size: 1.1rem;
-                opacity: 0.9;
-            }
-
-            /* Botão de alternância do Modo Escuro */
-            .theme-toggle {
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-                background: transparent;
-                border: 1px solid rgba(255, 255, 255, 0.4);
-                color: #ffffff;
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                cursor: pointer;
-                font-size: 0.9rem;
-                transition: background 0.3s;
-            }
-
-            .theme-toggle:hover {
-                background: rgba(255, 255, 255, 0.2);
-            }
-
-            main {
-                max-width: 1200px;
-                margin: 2rem auto;
-                padding: 0 1.5rem;
-            }
-
-            /* Container em Grid para exibição dos posts em Cards */
-            .posts-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 1.8rem;
-            }
-
-            .artigo-card {
-                background-color: var(--bg-card);
-                border: 1px solid var(--border-color);
-                border-radius: 12px;
-                padding: 1.5rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-                transition: transform 0.2s ease, box-shadow 0.2s ease;
-            }
-
-            .artigo-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-            }
-
-            .artigo-header {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                margin-bottom: 1rem;
-            }
-
-            .artigo-header img {
-                width: 64px;
-                height: 64px;
-                border-radius: 8px;
-                object-fit: cover;
-            }
-
-            .artigo-titulo {
-                font-size: 1.3rem;
-                margin-bottom: 0.2rem;
-            }
-
-            .artigo-autor {
-                font-size: 0.95rem;
-                color: var(--text-secondary);
-                font-weight: 600;
-            }
-
-            .artigo-conteudo {
-                font-size: 1rem;
-                color: var(--text-primary);
-                margin-bottom: 1.2rem;
-            }
-
-            /* Ações de reação */
-            .artigo-acoes {
-                display: flex;
-                gap: 0.5rem;
-            }
-
-            button.btn-reacao {
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-                padding: 6px 14px;
-                border: 1px solid var(--border-color);
-                border-radius: 20px;
-                background-color: var(--button-bg);
-                color: var(--text-primary);
-                cursor: pointer;
-                font-size: 0.95rem;
-                transition: background-color 0.2s ease;
-            }
-
-            button.btn-reacao:hover {
-                background-color: var(--button-hover);
-            }
-        </style>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
@@ -204,7 +44,7 @@
                                 <p class="artigo-autor">Por: Marcelo Henrique</p>
                             </div>
                         </div>
-                        <p class="artigo-conteudo">Mergulhamos fundo nas ferramentas e tendências digitais que vãp transformar a forma como você trabalha e vive</p>
+                        <p class="artigo-conteudo">Mergulhamos fundo nas ferramentas e tendências digitais que vão transformar a forma como você trabalha e vive</p>
                     </div>
                     <div class="artigo-acoes">
                         <button class="btn-reacao">❤️ <span>0</span></button>
@@ -222,7 +62,7 @@
                                 <p class="artigo-autor">Por: Marcelo Henrique</p>
                             </div>
                         </div>
-                        <p class="artigo-conteudo">Muitas pessoas acreditam que WI-fi significa "Wireless Fidelity", mas isso é mito. O nome foi criado por uma empresa de consultoria de marca chamada interbrand para substituir o nome técnico IEEE 802.11b Direct Sequence. A alusão ao termo "Hi-Fi" (High Fidelity, do aúdio) foi apenas uma estratégia de marketing para tomar a tecnologia mais amigável</p>
+                        <p class="artigo-conteudo">Muitas pessoas acreditam que Wi-Fi significa "Wireless Fidelity", mas isso é mito. O nome foi criado por uma empresa de consultoria de marca chamada Interbrand para substituir o nome técnico IEEE 802.11b Direct Sequence. A alusão ao termo "Hi-Fi" (High Fidelity, do áudio) foi apenas uma estratégia de marketing para tornar a tecnologia mais amigável.</p>
                     </div>
                     <div class="artigo-acoes">
                         <button class="btn-reacao">❤️ <span>0</span></button>
@@ -233,29 +73,6 @@
             </section>
         </main>
 
-        <script>
-            // Lógica dos contadores de reação
-            const botoesReacao = document.querySelectorAll(".btn-reacao");
-            
-            botoesReacao.forEach(function(botao) {
-                botao.addEventListener("click", function() {
-                    let contador = botao.querySelector("span");
-                    contador.textContent = parseInt(contador.textContent) + 1;
-                });
-            });
-
-            // Lógica do Modo Escuro (Dark Mode)
-            const btnTema = document.getElementById("btn-tema");
-            
-            btnTema.addEventListener("click", function() {
-                document.body.classList.toggle("dark-mode");
-                
-                if (document.body.classList.contains("dark-mode")) {
-                    btnTema.textContent = "☀️ Modo Claro";
-                } else {
-                    btnTema.textContent = "🌙 Modo Escuro";
-                }
-            });
-        </script>
+        <script src="script.js"></script>
     </body>
 </html>

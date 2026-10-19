@@ -1,11 +1,11 @@
-/* Reset global com o asterisco correto */
+/* Reset global corrigido com o asterisco * */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* 1. Variáveis Globais (:root - Modo Claro) */
+/* 1. Variáveis Globais (:root - Modo Claro da Aula 6) */
 :root {
     --cor-primaria: #183C63;
     --cor-secundaria: #3782d2;
@@ -17,7 +17,7 @@
     --fonte-texto: 'Segoe UI', sans-serif;
 }
 
-/* 2. Variáveis para o Modo Escuro */
+/* 2. Variáveis do Modo Escuro */
 .tema-escuro {
     --cor-primaria: #c9e3ff;
     --cor-secundaria: #3782d2;
@@ -36,10 +36,10 @@ body {
     color: var(--cor-texto);
 }
 
-/* 4. Header */
+/* 4. Header usando as variáveis */
 header {
     background-color: var(--cor-primaria);
-    color: #FFFFFF;
+    color: var(--cor-contraste);
     text-align: center;
     padding: 16px;
 }
@@ -94,7 +94,7 @@ a {
     color: var(--cor-secundaria);
 }
 
-/* 8. Ajustes de Contraste para o Modo Escuro */
+/* 8. Ajustes de Contraste para o Modo Escuro (Fim da Aula 6) */
 .tema-escuro p {
     color: var(--cor-texto);
 }

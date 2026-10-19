@@ -1,11 +1,11 @@
-/* Reset global (ajustado com o seletor *) */
+/* Reset global */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* 1. Variáveis Globais (:root - Tema Claro) */
+/* 1. Variáveis Globais (:root - Modo Claro) */
 :root {
     --cor-primaria: #183C63;
     --cor-secundaria: #3782d2;
@@ -17,12 +17,12 @@
     --fonte-texto: 'Segoe UI', sans-serif;
 }
 
-/* 2. Variáveis para o Tema Escuro */
+/* 2. Variáveis para o Modo Escuro */
 .tema-escuro {
-    --cor-primaria: #c9e3ff;  /* Azul claro no modo escuro */
+    --cor-primaria: #c9e3ff;
     --cor-secundaria: #3782d2;
-    --cor-fundo: #151428;     /* Fundo escuro */
-    --cor-texto: #ffffff;    /* Texto claro */
+    --cor-fundo: #151428;
+    --cor-texto: #ffffff;
     --cor-contraste: #f3eef7;
     --cor-botao: #22203a;
 }
@@ -44,7 +44,7 @@ header {
     padding: 16px;
 }
 
-/* 5. Main (Com Flexbox) */
+/* 5. Main (Flexbox) */
 main {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
@@ -67,7 +67,7 @@ article {
     gap: 16px;
     padding: 16px;
     flex: 1 1 25%;
-    min-width: 280px; /* Evita que o card fique fino demais em celulares */
+    min-width: 280px;
 }
 
 img {
@@ -80,7 +80,21 @@ img {
     font-weight: bold;
 }
 
-/* 7. Regras Específicas para o Modo Escuro */
+/* 7. Estilo dos Botões e Links */
+.btn-reacao, .theme-toggle {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-secundaria);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+a {
+    color: var(--cor-secundaria);
+}
+
+/* 8. Ajustes de Contraste para o Modo Escuro */
 .tema-escuro p {
     color: var(--cor-texto);
 }

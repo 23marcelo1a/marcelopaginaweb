@@ -1,41 +1,68 @@
-{
+/* Reset global (ajustado com o seletor *) */
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* 1. Variáveis Globais (:root - Tema Claro) */
+:root {
+    --cor-primaria: #183C63;
+    --cor-secundaria: #3782d2;
+    --cor-fundo: #ffffff;
+    --cor-texto: #151428;
+    --cor-contraste: #f3eef7;
+    --cor-botao: #f9f9f9;
+
+    --fonte-texto: 'Segoe UI', sans-serif;
+}
+
+/* 2. Variáveis para o Tema Escuro */
+.tema-escuro {
+    --cor-primaria: #c9e3ff;  /* Azul claro no modo escuro */
+    --cor-secundaria: #3782d2;
+    --cor-fundo: #151428;     /* Fundo escuro */
+    --cor-texto: #ffffff;    /* Texto claro */
+    --cor-contraste: #f3eef7;
+    --cor-botao: #22203a;
+}
+
+/* 3. Estilo do Body e Fonte Global */
 body {
     width: 100%;
     overflow-x: hidden;
-    font-family: sans-serif;
+    font-family: var(--fonte-texto);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
 }
 
-/* Header estilizado sem a limitação de 800px */
+/* 4. Header */
 header {
-    background-color: #183C63;
+    background-color: var(--cor-primaria);
     color: #FFFFFF;
     text-align: center;
     padding: 16px;
 }
 
-/* [02:27] e [02:23] Main com Flexbox e quebra de linha */
+/* 5. Main (Com Flexbox) */
 main {
-    background-color: #FFFFFF;
-    color: #183C63;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
     padding: 16px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-/* [03:01] e [03:29] Estilização completa do card do artigo */
+/* 6. Card do Artigo */
 article {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: space-between;
-    border: 1px solid #183C63;
+    border: 1px solid var(--cor-primaria);
+    background-color: var(--cor-botao);
     margin: 16px;
     gap: 16px;
     padding: 16px;
@@ -51,4 +78,17 @@ img {
 
 .artigo-autor {
     font-weight: bold;
+}
+
+/* 7. Regras Específicas para o Modo Escuro */
+.tema-escuro p {
+    color: var(--cor-texto);
+}
+
+.tema-escuro header p {
+    color: var(--cor-contraste);
+}
+
+.tema-escuro a {
+    color: var(--cor-secundaria);
 }

@@ -54,7 +54,7 @@ main {
     justify-content: center;
 }
 
-/* 6. Card do Artigo */
+/* 6. Card do Artigo (Com tamanho reduzido) */
 article {
     display: flex;
     flex-direction: column;
@@ -63,16 +63,17 @@ article {
     justify-content: space-between;
     border: 1px solid var(--cor-primaria);
     background-color: var(--cor-botao);
-    margin: 16px;
-    gap: 16px;
-    padding: 16px;
-    flex: 1 1 25%;
-    min-width: 280px;
+    margin: 12px;
+    gap: 12px;
+    padding: 12px;
+    flex: 0 1 200px;
+    min-width: 200px;
+    max-width: 240px;
 }
 
 img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
 }
 

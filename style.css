@@ -5,7 +5,7 @@
     padding: 0;
 }
 
-/* 1. Variáveis Globais (:root - Modo Claro da Aula 6) */
+/* 1. Variáveis Globais (:root - Modo Claro) */
 :root {
     --cor-primaria: #183C63;
     --cor-secundaria: #3782d2;
@@ -19,8 +19,8 @@
 
 /* 2. Variáveis do Modo Escuro */
 .tema-escuro {
-    --cor-primaria: #c9e3ff;
-    --cor-secundaria: #3782d2;
+    --cor-primaria: #1e2d4a;
+    --cor-secundaria: #5fa3eb;
     --cor-fundo: #151428;
     --cor-texto: #ffffff;
     --cor-contraste: #f3eef7;
@@ -34,6 +34,7 @@ body {
     font-family: var(--fonte-texto);
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* 4. Header usando as variáveis */
@@ -41,69 +42,95 @@ header {
     background-color: var(--cor-primaria);
     color: var(--cor-contraste);
     text-align: center;
-    padding: 16px;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
 /* 5. Main (Flexbox) */
 main {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
-    padding: 16px;
+    padding: 24px 16px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 16px;
 }
 
-/* 6. Card do Artigo (Com tamanho reduzido) */
+/* 6. Card do Artigo */
 article {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: space-between;
-    border: 1px solid var(--cor-primaria);
+    border: 1px solid var(--cor-secundaria);
     background-color: var(--cor-botao);
-    margin: 12px;
+    border-radius: 8px;
     gap: 12px;
-    padding: 12px;
-    flex: 0 1 200px;
-    min-width: 200px;
-    max-width: 240px;
+    padding: 16px;
+    flex: 0 1 260px;
+    min-width: 240px;
+    max-width: 280px;
+}
+
+.artigo-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
 img {
     width: 60px;
     height: 60px;
     object-fit: cover;
+    border-radius: 8px;
+}
+
+.artigo-titulo {
+    font-size: 1.1rem;
 }
 
 .artigo-autor {
     font-weight: bold;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.artigo-conteudo {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.artigo-fonte {
+    font-size: 0.85rem;
 }
 
 /* 7. Estilo dos Botões e Links */
-.btn-reacao, .theme-toggle {
+.btn-reacao, .btn-tema-escuro {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
     border: 1px solid var(--cor-secundaria);
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.1s;
+}
+
+.btn-reacao:hover, .btn-tema-escuro:hover {
+    transform: scale(1.05);
 }
 
 a {
     color: var(--cor-secundaria);
+    text-decoration: none;
 }
 
-/* 8. Ajustes de Contraste para o Modo Escuro (Fim da Aula 6) */
-.tema-escuro p {
-    color: var(--cor-texto);
-}
-
-.tema-escuro header p {
-    color: var(--cor-contraste);
-}
-
-.tema-escuro a {
-    color: var(--cor-secundaria);
+a:hover {
+    text-decoration: underline;
 }

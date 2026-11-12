@@ -4,22 +4,21 @@
 const btnTema = document.getElementById('btn-tema');
 const body = document.body;
 
-btnTema.addEventListener('click', function () {
-    // Liga e desliga a classe "tema-escuro" na tag <body>
-    body.classList.toggle('tema-escuro');
+if (btnTema) {
+    btnTema.addEventListener('click', function () {
+        body.classList.toggle('tema-escuro');
 
-    // Troca o texto e o ícone do botão
-    if (body.classList.contains('tema-escuro')) {
-        btnTema.textContent = '☀️ Modo Claro';
-    } else {
-        btnTema.textContent = '🌙 Modo Escuro';
-    }
-});
+        if (body.classList.contains('tema-escuro')) {
+            btnTema.textContent = '☀️ Modo Claro';
+        } else {
+            btnTema.textContent = '🌙 Modo Escuro';
+        }
+    });
+}
 
 // ==========================================
 // 2. FUNCIONALIDADE DAS CURTIDAS
 // ==========================================
-// Seleciona APENAS os botões de reação
 const botoesReacao = document.querySelectorAll('.btn-reacao');
 
 botoesReacao.forEach(function (botao) {
